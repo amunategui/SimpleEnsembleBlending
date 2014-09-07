@@ -3,7 +3,7 @@ library(caret)
 names(getModelInfo())
 
 # Load data from Hadley Wickham on Github - Vehicle data set and predict 6 cylinder vehicles
-ibrary(RCurl)
+library(RCurl)
 urlData <- getURL('https://raw.githubusercontent.com/hadley/fueleconomy/master/data-raw/vehicles.csv')
 vehicles <- read.csv(text = urlData)
 
