@@ -31,7 +31,7 @@ predictors <- names(ensembleData)[names(ensembleData) != labelName]
 
 library(caret)
 # create a caret control object to control the number of cross-validations performed
-myControl <- trainControl(method='cv', number=3, repeats=1, returnResamp='none')
+myControl <- trainControl(method='cv', number=3, returnResamp='none')
 
 # quick benchmark model 
 test_model <- train(blenderData[,predictors], blenderData[,labelName], method='gbm', trControl=myControl)
