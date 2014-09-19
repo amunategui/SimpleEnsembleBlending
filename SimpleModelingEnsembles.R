@@ -4,9 +4,13 @@ names(getModelInfo())
 
 # Load data from Hadley Wickham on Github - Vehicle data set and predict 6 cylinder vehicles
 library(RCurl)
-urlData <- getURL('https://raw.githubusercontent.com/hadley/fueleconomy/master/data-raw/vehicles.csv')
-vehicles <- read.csv(text = urlData)
+#urlData <- getURL('https://raw.githubusercontent.com/hadley/fueleconomy/master/data-raw/vehicles.csv')
+#vehicles <- read.csv(text = urlData)
 
+# alternative way of getting the data
+urlfile <-'https://raw.githubusercontent.com/hadley/fueleconomy/master/data-raw/vehicles.csv'
+x <- getURL(urlfile, ssl.verifypeer = FALSE)
+vehicles <- read.csv(textConnection(x))
 
 # clean up the data and only use the first 24 columns
 vehicles <- vehicles[names(vehicles)[1:24]]
